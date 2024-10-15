@@ -98,16 +98,6 @@ export class CognitoStack extends AppStack {
         username: false,
       },
       signInCaseSensitive: false,
-      standardAttributes: {
-        email: {
-          mutable: true,
-          required: true,
-        },
-        preferredUsername: {
-          mutable: true,
-          required: true,
-        },
-      },
       userInvitation: {
         emailSubject: invitationSubject,
         emailBody: invitationBody,

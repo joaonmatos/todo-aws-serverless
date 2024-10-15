@@ -8,11 +8,12 @@ import { EmailStack } from "./stacks/email";
 import { CognitoStack } from "./stacks/cognito";
 import { FrontendStack } from "./stacks/frontend";
 import { CognitoDomainStack } from "./stacks/cognito-domain";
+import { ApiStack } from "./stacks/api-stack";
 
 const app = new App();
 const dns = new DnsStack(app);
 const globalCert = new GlobalCertStack(app, { dns: dns.props });
-new LocalCertStack(app, { dns: dns.props });
+const localCert = new LocalCertStack(app, { dns: dns.props });
 const email = new EmailStack(app, { dns: dns.props });
 const cognito = new CognitoStack(app, {
   dns: dns.props,
@@ -37,3 +38,9 @@ cognitoDomain.addDependency(
   frontend,
   "CognitoDomainStack is configured is on a subdomain that relies on an A record set in FrontendStack",
 );
+new ApiStack(app, {
+  dns: dns.props,
+  regionalCert: localCert.certificate,
+  userPool: cognito.userPool,
+  userPoolClient: cognito.client,
+});
