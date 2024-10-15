@@ -3,8 +3,8 @@ import {
   Link,
   Outlet,
 } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { UseAuthResult, useSignedIn } from "../hooks/use-auth";
+import { RouterDevTools } from "../components/dev-tools";
 
 type RootRouterContext = {
   auth: UseAuthResult;
@@ -37,7 +37,7 @@ function Root() {
       </div>
       <hr />
       <Outlet />
-      <TanStackRouterDevtools />
+      <RouterDevTools />
     </>
   );
 }
