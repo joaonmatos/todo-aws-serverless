@@ -26,8 +26,7 @@ You've been invited to join the app ${appConfig.name}!
 `;
 
 const verificationSubject = `${appConfig.name}: verify your email`;
-const verificationBody = `<p>Dear {username},</p>
-<p>Welcome to the app ${appConfig.name}!</p>
+const verificationBody = `<p>Welcome to the app ${appConfig.name}!</p>
 <p>{##Click here to verify your email##}.</p>
 `;
 
