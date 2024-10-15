@@ -1,0 +1,33 @@
+{
+  "name": "@joaonmatos/todo-cdk",
+  "version": "0.1.0",
+  "private": "true",
+  "scripts": {
+    "clean": "rimraf cdk.out dist",
+    "fmt:fix": "prettier --write .",
+    "prebuild": "npm run fmt:fix",
+    "build": "tsc && cdk synth",
+    "watch": "tsc -w",
+    "precdk": "npm run fmt:fix",
+    "cdk": "cdk",
+    "predeploy": "npm run fmt:fix",
+    "deploy": "cdk deploy --all"
+  },
+  "devDependencies": {
+    "@types/node": "22.5.4",
+    "aws-cdk": "2.162.1",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.2"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.162.1",
+    "constructs": "^10.0.0",
+    "dotenv": "^16.4.5",
+    "source-map-support": "^0.5.21",
+    "ts-deepmerge": "^7.0.1",
+    "znv": "^0.4.0",
+    "zod": "^3.23.8"
+  }
+}
